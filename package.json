@@ -1,0 +1,27 @@
+{
+  "name": "mcp-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch server.ts",
+    "start": "vercel dev --listen 3001",
+    "build": "tsc",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "http": "^0.0.1-security",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.5",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vercel": "^50.28.0"
+  },
+  "type": "module"
+}

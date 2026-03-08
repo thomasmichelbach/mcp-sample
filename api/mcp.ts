@@ -51,6 +51,10 @@ export default async function handler(
   const server = createServer();
   const transport = new StreamableHTTPServerTransport({});
 
-  await server.connect(transport as any);
-  await transport.handleRequest(req, res);
+  try {
+    await server.connect(transport as any);
+    await transport.handleRequest(req, res);
+  } finally {
+    await server.close();
+  }
 }

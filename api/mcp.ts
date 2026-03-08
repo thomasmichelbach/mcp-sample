@@ -38,7 +38,6 @@ export default async function handler(
   req: IncomingMessage,
   res: ServerResponse,
 ) {
-  // Handle CORS
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, mcp-session-id");
@@ -50,11 +49,8 @@ export default async function handler(
   }
 
   const server = createServer();
-  const transport = new StreamableHTTPServerTransport({
-    sessionIdGenerator: () => crypto.randomUUID(),
-  });
+  const transport = new StreamableHTTPServerTransport({});
 
   await server.connect(transport as any);
-
   await transport.handleRequest(req, res);
 }
